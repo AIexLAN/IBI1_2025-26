@@ -9,9 +9,8 @@ from random import randint
 # ceil takes the ceiling of a number, i.e. the next higher integer.
 # e.g. ceil(4.2)=5
 from math import ceil
-# create a new variable and bound it with number 0
+
 total_rand = 0
-# 
 progress=0
 while progress<=10:
 	progress+=1
