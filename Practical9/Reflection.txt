@@ -1,0 +1,11 @@
+I found this practical hard but rewarding.
+I am really proud of myself after designing the logic of the code and running it successfully.
+Through this exercise, I encountered several key problems that taught me important lessons about computational modeling. 
+The first issue was my misunderstanding of how probability is implemented—I didn't understand why infection should be determined by `if random() < beta` rather than equality, until I realized that continuous random numbers almost never land exactly on a specific value. 
+The second problem was a structural error in my 1D model: I used `p_Infected = beta * I / (N-Imm)`, incorrectly assuming that immune people should be excluded from the denominator. 
+I learned that all contacts still occur, but immune individuals simply don't get infected, so the denominator must always be the total population. 
+The third issue was negative population values—my code tried to infect more people than were available. 
+Switching from `np.random.choice()` to `np.random.binomial()` solved this because the binomial function  respects population limits. 
+In the 2D model, I initially updated the population while iterating through infected individuals, which caused chain infections within the same time step. 
+I learned to record changes in separate lists (`new_infections`, `recoveries`) and apply them in batch after processing all infected cells. 
+Finally, edge cells in the grid had fewer than eight neighbors, so I added boundary checks before accessing neighbor coordinates. 
